@@ -70,7 +70,8 @@ class TimeWheel {
      * @param view 视图
      */
     private void initialize(View view) {
-        initView(view);
+        initView(view); // 初始化视图
+
         initYearView();
         initMonthView();
         initDayView();
@@ -204,7 +205,8 @@ class TimeWheel {
         int curYear = getCurrentYear();
         int minMonth = mRepository.getMinMonth(curYear);
         int maxMonth = mRepository.getMaxMonth(curYear);
-        mMonthAdapter = new NumericWheelAdapter(mContext, minMonth, maxMonth, DateConstants.FORMAT, mScrollerConfig.mMonth);
+        mMonthAdapter = new NumericWheelAdapter(mContext, minMonth, maxMonth,
+                DateConstants.FORMAT, mScrollerConfig.mMonth);
         mMonthAdapter.setConfig(mScrollerConfig);
         mMonthView.setViewAdapter(mMonthAdapter);
 

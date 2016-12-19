@@ -50,8 +50,6 @@ public class DateScrollerDialog extends DialogFragment implements View.OnClickLi
     @Override
     public void onResume() {
         super.onResume();
-        // Dialog的高度
-//        int height = getResources().getDimensionPixelSize(R.dimen.picker_height);
 
         // Dialog的位置置底
         Window window = getDialog().getWindow();
@@ -70,8 +68,7 @@ public class DateScrollerDialog extends DialogFragment implements View.OnClickLi
         mScrollerConfig = scrollerConfig;
     }
 
-    @NonNull
-    @Override
+    @NonNull @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Dialog dialog = new Dialog(getActivity(), R.style.Dialog_NoTitle);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -150,6 +147,7 @@ public class DateScrollerDialog extends DialogFragment implements View.OnClickLi
         dismiss();
     }
 
+    @SuppressWarnings("unused")
     public static class Builder {
         ScrollerConfig mScrollerConfig;
 

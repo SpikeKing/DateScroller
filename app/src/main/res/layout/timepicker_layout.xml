@@ -65,7 +65,6 @@
             android:background="@drawable/date_wheel_bg"
             android:contentDescription="@null"/>
 
-
     </FrameLayout>
 
 
