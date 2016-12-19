@@ -16,7 +16,6 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private static final long HUNDRED_YEARS = 100L * 365 * 1000 * 60 * 60 * 24L; // 100年
 
-    private DateScrollerDialog mDialogYearMonthDay; // 日期弹窗
     private TextView mTvTime;
     private SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
     private long mLastTime = System.currentTimeMillis(); // 上次设置的时间
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void showDate(View view) {
         // 实际
-        mDialogYearMonthDay = new DateScrollerDialog.Builder()
+        DateScrollerDialog dialog = new DateScrollerDialog.Builder()
                 .setType(Type.YEAR_MONTH_DAY)
                 .setTitleStringId("请选择出生日期")
                 .setMinMilliseconds(System.currentTimeMillis() - HUNDRED_YEARS)
@@ -53,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 .setCallback(mOnDateSetListener)
                 .build();
 
-        if (mDialogYearMonthDay != null) {
-            if (!mDialogYearMonthDay.isAdded()) {
-                mDialogYearMonthDay.show(getSupportFragmentManager(), "year_month_day");
+        if (dialog != null) {
+            if (!dialog.isAdded()) {
+                dialog.show(getSupportFragmentManager(), "year_month_day");
             }
         }
     }
