@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
+    android:layout_height="36dp"
     android:gravity="center"
-    android:textColor="@android:color/black"
+    android:textColor="@color/toolbar_text_cancel"
     android:textSize="18sp"
     tools:text="C.L. Wang"/>

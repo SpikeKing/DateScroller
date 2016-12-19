@@ -5,7 +5,7 @@
 
     <dimen name="picker_default_text_size">12sp</dimen>
     <dimen name="picker_toolbar_height">48dp</dimen>
-    <dimen name="picker_dialog_height">225dp</dimen>
+    <dimen name="picker_dialog_height">180dp</dimen>
 
     <dimen name="textview_default_padding">5dp</dimen>
     <dimen name="picker_line_width">1dp</dimen>

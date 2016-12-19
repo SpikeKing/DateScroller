@@ -22,8 +22,6 @@
             android:id="@+id/linear_wheel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
             android:layout_gravity="center_horizontal"
             android:background="@android:color/white"
             android:orientation="horizontal">
