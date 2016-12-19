@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="showDate"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.wangchenlong.datescroller.MainActivity">
-
 
     <TextView
         android:id="@+id/btn_year_month_day"
@@ -30,5 +30,12 @@
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:text="@string/birthday_hint"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/btn_year_month_day"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"/>
 
 </RelativeLayout>

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private static final long HUNDRED_YEARS = 100L * 365 * 1000 * 60 * 60 * 24L; // 100年
 
     private TextView mTvTime;
-    private SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+    private SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     private long mLastTime = System.currentTimeMillis(); // 上次设置的时间
 
     // 数据的回调
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+        initView(); // 初始化View
     }
 
     /**
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view 视图
      */
     public void showDate(View view) {
-        // 实际
+        // 出生日期
         DateScrollerDialog dialog = new DateScrollerDialog.Builder()
                 .setType(Type.YEAR_MONTH_DAY)
                 .setTitleStringId("请选择出生日期")
