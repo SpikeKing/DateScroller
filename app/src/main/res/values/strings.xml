@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DateScroller</string>
+
+    <string name="picker_sure">确定</string>
+    <string name="picker_cancel">取消</string>
+    <string name="picker_title">请选择出生日期</string>
+
+    <string name="picker_year">年</string>
+    <string name="picker_month">月</string>
+    <string name="picker_day">日</string>
+    <string name="picker_hour">时</string>
+    <string name="picker_minute">分</string>
+
+    <string name="year_month_day">年-月-日</string>
+</resources>
