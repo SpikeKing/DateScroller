@@ -25,6 +25,8 @@ public class DefaultConfig {
 
     public static final boolean CYCLIC = true; // 循环
 
+    public static final int MAX_LINE = 5; // 最大行数, 依据控件样式
+
     // 默认文案
     public static String CANCEL = "取消";
     public static String SURE = "确定";

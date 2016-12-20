@@ -149,7 +149,6 @@ class TimeWheel {
         int curYear = getCurrentYear();
         int minMonth = mRepository.getMinMonth(curYear);
         mMonthView.setCurrentItem(mRepository.getDefaultCalendar().month - minMonth);
-        mMonthView.setCyclic(mScrollerConfig.cyclic);
     }
 
     /**
@@ -162,7 +161,6 @@ class TimeWheel {
 
         int minDay = mRepository.getMinDay(curYear, curMonth);
         mDayView.setCurrentItem(mRepository.getDefaultCalendar().day - minDay);
-        mDayView.setCyclic(mScrollerConfig.cyclic); // 是否循环
     }
 
     /**
@@ -176,7 +174,6 @@ class TimeWheel {
 
         int minHour = mRepository.getMinHour(curYear, curMonth, curDay);
         mHourView.setCurrentItem(mRepository.getDefaultCalendar().hour - minHour);
-        mHourView.setCyclic(mScrollerConfig.cyclic);
     }
 
     /**
@@ -191,8 +188,6 @@ class TimeWheel {
         int minMinute = mRepository.getMinMinute(curYear, curMonth, curDay, curHour);
 
         mMinuteView.setCurrentItem(mRepository.getDefaultCalendar().minute - minMinute);
-        mMinuteView.setCyclic(mScrollerConfig.cyclic);
-
     }
 
     /**
@@ -209,6 +204,12 @@ class TimeWheel {
                 DateConstants.FORMAT, mScrollerConfig.mMonth);
         mMonthAdapter.setConfig(mScrollerConfig);
         mMonthView.setViewAdapter(mMonthAdapter);
+        mMonthView.setCyclic(mScrollerConfig.cyclic);
+
+        // 当滚动数量不足时, 需要避免循环
+        if (maxMonth - minMonth < mScrollerConfig.mMaxLines) {
+            mMonthView.setCyclic(false);
+        }
 
         if (mRepository.isMinYear(curYear)) {
             mMonthView.setCurrentItem(0, false);
@@ -234,6 +235,12 @@ class TimeWheel {
         mDayAdapter = new NumericWheelAdapter(mContext, minDay, maxDay, DateConstants.FORMAT, mScrollerConfig.mDay);
         mDayAdapter.setConfig(mScrollerConfig);
         mDayView.setViewAdapter(mDayAdapter);
+        mDayView.setCyclic(mScrollerConfig.cyclic); // 是否循环
+
+        // 当滚动数量不足时, 需要避免循环
+        if (maxDay - minDay < mScrollerConfig.mMaxLines) {
+            mDayView.setCyclic(false);
+        }
 
         if (mRepository.isMinMonth(curYear, curMonth)) {
             mDayView.setCurrentItem(0, true);
@@ -262,6 +269,12 @@ class TimeWheel {
         mHourAdapter = new NumericWheelAdapter(mContext, minHour, maxHour, DateConstants.FORMAT, mScrollerConfig.mHour);
         mHourAdapter.setConfig(mScrollerConfig);
         mHourView.setViewAdapter(mHourAdapter);
+        mHourView.setCyclic(mScrollerConfig.cyclic);
+
+        // 当滚动数量不足时, 需要避免循环
+        if (maxHour - minHour < mScrollerConfig.mMaxLines) {
+            mHourView.setCyclic(false);
+        }
 
         if (mRepository.isMinDay(curYear, curMonth, curDay))
             mHourView.setCurrentItem(0, false);
@@ -285,6 +298,12 @@ class TimeWheel {
         mMinuteAdapter = new NumericWheelAdapter(mContext, minMinute, maxMinute, DateConstants.FORMAT, mScrollerConfig.mMinute);
         mMinuteAdapter.setConfig(mScrollerConfig);
         mMinuteView.setViewAdapter(mMinuteAdapter);
+        mMinuteView.setCyclic(mScrollerConfig.cyclic);
+
+        // 当滚动数量不足时, 需要避免循环
+        if (maxMinute - minMinute < mScrollerConfig.mMaxLines) {
+            mMinuteView.setCyclic(false);
+        }
 
         if (mRepository.isMinHour(curYear, curMonth, curDay, curHour))
             mMinuteView.setCurrentItem(0, false);

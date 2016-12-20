@@ -7,6 +7,8 @@ import org.wangchenlong.datescroller.widget.data.Type;
 import org.wangchenlong.datescroller.widget.data.WheelCalendar;
 import org.wangchenlong.datescroller.widget.listener.OnDateSetListener;
 
+import static org.wangchenlong.datescroller.widget.config.DefaultConfig.MAX_LINE;
+
 /**
  * 滚动配置
  */
@@ -37,4 +39,6 @@ public class ScrollerConfig {
     public WheelCalendar mCurCalendar = new WheelCalendar(System.currentTimeMillis()); // 当前日期
 
     public OnDateSetListener mCallback; // 回调
+
+    public int mMaxLines = MAX_LINE; // 最大行数, 依据控件样式
 }
